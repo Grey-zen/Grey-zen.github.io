@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101317">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Client Login | Grey Zen</title>
+  <meta name="description" content="Grey Zen client portal sign-in interface. Secure authentication setup is required before real accounts can be used.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-showcase" aria-label="Grey Zen client portal introduction">
+      <a class="brand" href="./index.html" aria-label="Grey Zen home">
+        <img src="./Grey-Zen.png" class="brand-logo" alt="Grey Zen emblem">
+        <span class="brand-copy"><strong>GREY ZEN</strong><small>GLOBAL SOURCING · EXPORTS</small></span>
+      </a>
+      <div class="auth-pitch">
+        <p class="eyebrow"><span class="eyebrow-line"></span> CLIENT ACCESS</p>
+        <h1>Trade with <em>more clarity.</em></h1>
+        <p>A dedicated client access experience for Grey Zen. The interface is ready; connect a secure authentication provider to activate real accounts.</p>
+      </div>
+      <p class="auth-footnote">© <span id="year">2026</span> Grey Zen · Client portal</p>
+      <img class="auth-showcase-art" src="./Grey-Zen.png" alt="" aria-hidden="true">
+    </section>
+
+    <section class="auth-form-side">
+      <div class="auth-card">
+        <a class="auth-back" href="./index.html"><span aria-hidden="true">←</span> Back to Grey Zen website</a>
+        <h2>Welcome</h2>
+        <p class="auth-subtitle">Sign-in and account-creation interface</p>
+        <div class="auth-tabs" role="tablist" aria-label="Choose account action">
+          <button class="auth-tab" type="button" role="tab" aria-selected="true" data-mode="signin">Sign in</button>
+          <button class="auth-tab" type="button" role="tab" aria-selected="false" data-mode="signup">Create account</button>
+        </div>
+
+        <form class="auth-form" data-mode="signin">
+          <label for="signin-email">Email address<input id="signin-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+          <label for="signin-password">Password<input id="signin-password" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="Enter your password" required></label>
+          <div class="auth-row"><span>Use the email linked to your account.</span><a href="#forgot" id="forgot-password">Forgot password?</a></div>
+          <button class="button button-gold auth-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+        </form>
+
+        <form class="auth-form" data-mode="signup" hidden>
+          <label for="signup-name">Full name<input id="signup-name" name="name" autocomplete="name" placeholder="Your name" required></label>
+          <label for="signup-email">Business email<input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+          <label for="signup-password">Create password<input id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required></label>
+          <label class="auth-check"><input type="checkbox" name="terms" required><span>I understand this is an account interface, and real account access is not active until secure authentication is configured.</span></label>
+          <button class="button button-gold auth-submit" type="submit">Create account <span aria-hidden="true">↗</span></button>
+        </form>
+
+        <p class="auth-status" id="auth-status" role="status" aria-live="polite"></p>
+        <div class="auth-notice"><strong>Setup required:</strong> secure authentication has not been connected. This static website does not store or transmit passwords. Connect Supabase Auth, Firebase Authentication or another trusted provider before using real accounts.</div>
+        <p class="auth-legal">Need help? <a href="mailto:rishabhgoko@gmail.com">Contact Grey Zen</a>. Signing in will not work until the authentication service is configured.</p>
+      </div>
+    </section>
+  </main>
+  <script src="./script.js" defer></script>
+</body>
+</html>
