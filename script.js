@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("primary-nav");
   var year = document.getElementById("year");
+  var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (year) year.textContent = new Date().getFullYear();
 
   function updateHeader() {
@@ -12,6 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
+
+  // Subtle section reveals; content remains visible if IntersectionObserver is unavailable.
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    var revealItems = document.querySelectorAll(".section-heading, .section-copy, .section-visual, .product-card, .approach-card, .process-step, .faq-list details, .enquiry-form");
+    revealItems.forEach(function (item) { item.classList.add("motion-ready"); });
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("motion-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -24px 0px" });
+    revealItems.forEach(function (item) { revealObserver.observe(item); });
+  }
 
   if (menuToggle && nav) {
     menuToggle.addEventListener("click", function () {
