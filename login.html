@@ -39,14 +39,14 @@
           <button class="auth-tab" type="button" role="tab" aria-selected="false" data-mode="signup">Create account</button>
         </div>
 
-        <form class="auth-form" data-mode="signin">
+        <form class="auth-form" data-mode="signin" method="post" onsubmit="return false;">
           <label for="signin-email">Email address<input id="signin-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
           <label for="signin-password">Password<input id="signin-password" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="Enter your password" required></label>
           <div class="auth-row"><span>Use the email linked to your account.</span><a href="#forgot" id="forgot-password">Forgot password?</a></div>
           <button class="button button-gold auth-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
         </form>
 
-        <form class="auth-form" data-mode="signup" hidden>
+        <form class="auth-form" data-mode="signup" method="post" onsubmit="return false;" hidden>
           <label for="signup-name">Full name<input id="signup-name" name="name" autocomplete="name" placeholder="Your name" required></label>
           <label for="signup-email">Business email<input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
           <label for="signup-password">Create password<input id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required></label>
